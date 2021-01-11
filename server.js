@@ -75,7 +75,6 @@ server.post('/dados/', (req, res) => {
     } else {
         dataToSave = [receivedData]
     }
-    console.log(dados)
     escreverJson(dataToSave)
     
     return res.send(200)

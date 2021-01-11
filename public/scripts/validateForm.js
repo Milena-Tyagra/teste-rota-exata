@@ -138,8 +138,6 @@ function createUser() {
     }).then(res => {
         alert("Usuário criado")
         window.location = 'portal'
-    }).catch(err => {
-        console.log(err)
     })
 }
 
