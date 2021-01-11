@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="PT-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="/scripts/validateForm.js"></script>
+    <title>Formulário</title>
+    
+    <link rel="stylesheet" href="./styles/form-style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <h1>Formulário de Incrição</h1>
+        <p>Venha fazer parte do nosso time.</p> 
+        <h5>* Preencha todos os campos para avançar!</h5>
+    </header>
+    <div class="form">
+        <form method="post" name="login" onSubmit="event.preventDefault();">
+            <label class="tittle" for="name"><h3>Nome completo</h3></label> <br>
+            <input class="input-text" type="text" name="name" id="name"><br>
+            <label class="tittle" for="cpf"><h3>Seu CPF</h3></label> <br>
+            <input class="input-text" type="number" name="cpf" id="cpf" placeholder="Sem pontuação"><br>
+            <label class="tittle" for="password"><h3>Crie uma senha</h3></label> <br>
+            <input class="input-text" type="password" id="password" min="8" name="password" placeholder="No mínimo 8 caracteres" autocomplete="off"> <br>
+            <label class="tittle" for="gender"><h3>Gênero</h3></label> <br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Masculino</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Feminino</label><br>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Prefiro não responder</label><br>
+            <label class="tittle" for="information"><h3>Como você conheceu nossa empresa?</h3></label> <br>
+            <input type="checkbox" id="social-media1" name="social-media" value="linkedin">
+            <label for="social-media1"> LinkedIn</label><br>
+            <input type="checkbox" id="social-media2" name="social-media" value="facebook">
+            <label for="social-media2"> Facebook</label><br>
+            <input type="checkbox" id="social-media3" name="social-media" value="instagram">
+            <label for="social-media3">Instagram</label><br>
+            <input type="checkbox" id="social-media4" name="social-media" value="friends">
+            <label for="social-media4">Indicação de amigos</label><br>
+            <label class="tittle" for="jobs"><h3>Qual das nossas vagas disponíveis lhe interessa?</h3></label> <br>
+            <select class="input-text" id="jobs" name="jobs">
+                <option value="">Selecione uma vaga</option>
+                <option value="adm" id="adm">Auxiliar administrativo</option>
+                <option value="dev" id="dev">Desenvolvedor de Front-End</option>
+                <option value="dev2" id="dev2">Desenvolvedor de Back-End</option>
+                <option value="dev3" id="dev3">Estágio</option>
+            </select> <br>
+            <label class="tittle"  for="message"><h3>Por que você quer fazer parte da nossa empresa?</h3></label> <br>
+            <textarea class="input-text" id="message" name="message" ></textarea>
+            <div class="buttons">
+                <input type="reset" class="button" value="Limpar" />
+                <button type="submit" value="Enviar" class="button" data-toggle="modal" data-target="#exampleModal" onclick="validateForm()">Enviar</button>
+            </div>
+            
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">ATENÇÃO!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div id="modalMessage" class="modal-body">
+                      Texto do modal
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                      <button type="button" class="button" onclick="createUser()">Continuar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </form>
+
+    </div>
+    <footer>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>

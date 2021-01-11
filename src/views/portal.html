@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="PT-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do candidato</title>
+    <script type="text/javascript" src="/scripts/validateForm.js"></script>
+    <link rel="stylesheet" href="./styles/form-style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <h1>Portal do candidato</h1>
+    </header>
+        <form class="login" onSubmit="prevent.default" >
+            <h2>Faça login para acessar suas informações</h2>
+            <label class="tittle" for="cpf"><h3>Seu CPF</h3></label> <br>
+            <input class="input-text" type="number" name="cpf" id="cpf"> <br>
+            <label class="tittle" for="password"><h3>Sua senha</h3></label> <br>
+            <input class="input-text" type="password" id="password" min="8" name="password"> <br>
+            <button type="submit" value="Enviar" class="button" onclick="validateLogin()">Entrar</button>
+            <button type="button" class="button" onclick="goPageForm()">Inscreva-se no nosso processo seletivo</button>
+    </form>
+    
+    <footer>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function goPageForm() {
+    window.location = "formulario"
+    }
+    </script>
+
+</body>
+</html>
