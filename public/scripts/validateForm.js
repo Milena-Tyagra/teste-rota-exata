@@ -138,8 +138,8 @@ function createUser() {
     }).then(res => {
         alert("Usuário criado")
         window.location = 'portal'
-    }).err(err => {
-        alert("Problemas ao criar seu usuário")
+    }).catch(err => {
+        console.log(err)
     })
 }
 
