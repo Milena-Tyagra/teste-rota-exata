@@ -17,10 +17,8 @@ nunjucks.configure("src/views", {
     noCache: true,
 })
 
+server.use(express.static("public"));
 
-server.listen(5500, () => {
-    console.log("O servidor está rodando na porta 5500!")
-});
 
 
 server.get('/', (req, res) => {
@@ -48,7 +46,6 @@ server.get('/dados/', (req, res) => {
     })
 })
 
-.use(express.static("public"))
 
 
 function escreverJson(dados) {
@@ -100,3 +97,7 @@ server.post('/login/', (req, res) => {
     
     return res.send(400)
 })
+
+server.listen(process.env.PORT || 5500, () => {
+    console.log("O servidor está rodando na porta 5500!")
+});
