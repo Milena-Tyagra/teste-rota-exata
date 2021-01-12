@@ -12,7 +12,7 @@
     <header>
         <h1>Portal do candidato</h1>
     </header>
-        <form class="login" onSubmit="prevent.default" >
+        <form class="login" onSubmit="event.preventDefault()" >
             <h2>Faça login para acessar suas informações</h2>
             <label class="tittle" for="cpf"><h3>Seu CPF</h3></label> <br>
             <input class="input-text" type="number" name="cpf" id="cpf"> <br>
@@ -33,6 +33,35 @@
         function goPageForm() {
     window.location = "formulario"
     }
+    
+        function login(){
+            axios({
+                method: 'post',
+                url: '/login/',
+                data: JSON.stringify(
+                    {
+                        cpf: $("#cpf").val(),
+                        senha: $("#password").val(),
+                    }
+                ),
+                headers: {'content-type': 'application/json'}
+            }).then(res => {
+                alert("Validação de usuário efetivada com sucesso")
+            }).catch(err => {
+                alert("Temos um ponto")
+            })
+        }
+
+        function validateLogin(){
+            var cpf = document.getElementById("cpf").value;
+            var password = document.getElementById("password").value;
+            if(cpf == "" || password == ""){
+                return alert("Preencha seus dados")
+            } else {
+                login();
+            }
+        }
+
     </script>
 
 </body>

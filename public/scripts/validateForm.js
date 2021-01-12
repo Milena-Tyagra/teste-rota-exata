@@ -94,22 +94,6 @@ function validateForm(){
     
 }
 
-function validateLogin(){
-    console.log("Funciona")
-	var usuario = JSON.stringify({
-		CPF   : $("#cpf").val(),
-		Senha     : $("#password").val(),
-    });
-    var cpf = document.getElementById("cpf").value;
-    var password = document.getElementById("password");
-    localStorage.setItem("./autenticacao.json", usuario);
-     if(cpf == "" || password == ""){
-         alert("Preencha seus dados")
-     } else {
-         alert("Login validado.")
-     }
-}
-
 function getData() {
     axios({
         method: 'get',
@@ -117,57 +101,4 @@ function getData() {
     }).then(res => {
         console.log(res)
     })
-}
-
-function createUser() {
-    axios({
-        method: 'post',
-        url: '/dados/',
-        data: JSON.stringify(
-            { 
-                nome: $("#name").val(),
-                cpf: $("#cpf").val(),
-                senha: $("#password").val(),
-                genero: verifyGender(),
-                midia: verifySocialMedia(),
-                vaga: yourJob(),
-                mensagem: $('#message').val(),
-            }
-        ),
-        headers: {'content-type': 'application/json'}
-    }).then(res => {
-        alert("Usuário criado")
-        window.location = 'portal'
-    })
-}
-
-
-function login() {
-    axios({
-        method: 'post',
-        url: '/login/',
-        data: JSON.stringify(
-            {
-                nome: $("#nome").val(),
-                senha: $("#senha").val()
-            }
-        ),
-        headers: {'content-type': 'application/json'}
-    }).then(res => {
-        console.log(res)
-    })
-}
-
-function writeJson(dados) {
-    fs.writeFile('autenticacao.json', JSON.stringify(dados), function (err) {
-        if (err) {
-            console.log("erro")
-        }
-        console.log("finalizou")
-    })
-}
-
-function readJson() {
-    let dadosJson = []
-    return JSON.parse(fs.readFileSync('autenticacao.json'))
 }

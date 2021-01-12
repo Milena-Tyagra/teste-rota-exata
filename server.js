@@ -48,7 +48,7 @@ server.get('/dados/', (req, res) => {
 
 
 
-function escreverJson(dados) {
+function writeJson(dados) {
     fs.writeFile('autenticacao.json', JSON.stringify(dados), function (err) {
         if (err) {
             console.log("erro")
@@ -75,26 +75,32 @@ server.post('/dados/', (req, res) => {
     } else {
         dataToSave = [receivedData]
     }
-    escreverJson(dataToSave)
+    writeJson(dataToSave)
     
     return res.send(200)
 })
 
 
 server.post('/login/', (req, res) => {
+    console.log("req: " + req.body)
     let data = readJson()
-    let salt = bcrypt.genSaltSync(10)
+    //let salt = bcrypt.genSaltSync(10)
     const dataToLogin = req.body
-    console.log(data)
+    console.log("banco: " + data)
+    console.log("login: ")
     console.log(dataToLogin)
-    for(var i=0; i < dados.length; i++) {
-        if (dataToLogin.cpf === data[i].cpf && bcrypt.hashSync(dataToLogin.senha, salt) === data[i].senha) {
-            return res.send(200)        
+    for(var i=0; i < data.length; i++) {
+        const verified = bcrypt.compareSync(dataToLogin.senha, data[i].senha)
+        if (dataToLogin.cpf === data[i].cpf && verified) {
+            res.send(200)        
         } 
     }
 
-    
-    return res.send(400)
+
+    res.status(302).send({
+        sucess: false,
+        message: "mensagem"
+    })
 })
 
 server.listen(process.env.PORT || 5500, () => {
